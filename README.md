@@ -1,7 +1,7 @@
 # Password Generator Starter Code
 
 ## Purpose
-A website tha generates secure passwords 
+A website that generates secure passwords 
 
 ## Built with 
 *HTML
@@ -14,4 +14,4 @@ A website tha generates secure passwords
 </a>
 
 ## Questions 
-My GitHub repo is https://github.com/aidyel/password-generator, you can see the deployed add using this link pages link
+My GitHub repo is https://github.com/aidyel/password-generator, you can see the deployed link using this  https://aidyel.github.io/password-generator/
