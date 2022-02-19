@@ -1,6 +1,9 @@
 // Assignment code here
-
-
+var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var specialChars = ["!", "#", "$", "%", "&", "(", ")", "*", "+", "?", "@", "^", "~"];
+var passwordArray = [];
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
@@ -8,29 +11,42 @@ function generatePassword(){
   console.log("Hey! you clicked the button")
 
    // Prompt the user for the password criteria
-   var passwordSizeLenght = window.prompt ("Enter size of password")
-   console.log(passwordSizeLenght)
+   var passwordSizeLenght = window.prompt ("Enter size of password (size should be between 8 and 128 characters)")
+   if (passwordSizeLenght < 8 || passwordSizeLenght > 128){
+     window.alert("password size should be between 8 and 128 characters");
+     generatePassword();
+   }
 
-   var IsLowerCase = window.confirm ("Does this password includes lower case?")
-   console.log(IsLowerCase)
-
+   var isLowerCase = window.confirm ("Does this password includes lower case?")
+   if (isLowerCase){
+     passwordArray = passwordArray.concat(lowerCase)
+   console.log(isLowerCase)
+   }
     
  var isUpperCase = window.confirm ("Does this password include upper case?")
+ if (isUpperCase){
+  passwordArray = passwordArray.concat(upperCase)
  console.log(isUpperCase)
-
+ }
   
- var specialCharacters = window.confirm ("Does this password includes special characters?")
- console.log(specialCharacters)
+ var isSpecialCharacters = window.confirm ("Does this password includes special characters?")
+ if (isSpecialCharacters){
+  passwordArray = passwordArray.concat(specialChars)
+ console.log(isSpecialCharacters)
+ }
 
+ var isNumbers = window.confirm ("Does this password includes numbers?")
+ if (isNumbers){
+  passwordArray = passwordArray.concat(numbers)
+ console.log(isNumbers)
+ }
  //password characters
  
-   var chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIHJKLMNOPQRSTUVWXYZ";
-    passwordSizeLenght = 12;
-   var password = "";
-    for (var i = 0; i <= passwordSizeLenght; ++i) {
-     var randomNumber = Math.floor(Math.random() * chars.length);
-     password += chars.substring(randomNumber, randomNumber+1);
-      
+
+     var password = " ";
+    for (var i = 0; i <= passwordSizeLenght; i++) {
+    password = password + passwordArray[Math.floor(Math.random()* passwordArray.length)];
+  
    }
  
  return password
@@ -39,10 +55,10 @@ function generatePassword(){
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var finalPasswrd = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  passwordText.value = finalPasswrd;
 
 }
 
